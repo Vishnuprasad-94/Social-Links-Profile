@@ -79,6 +79,27 @@ body {
     border-radius: 7px;
 }
 
+.bottom-container a {
+   text-decoration: none;
+   color: inherit;
+}
+
+.bottom-container a:hover {
+    
+    
+    scale: 1.025;
+    transition: scale 0.1s ease-in-out;
+    
+   
+}
+
+
+
+.bottom-container a:active {
+   
+    scale: 0.985;
+} 
+
 /*Fonts and colors*/
 
 .top-container h1 {
@@ -90,6 +111,7 @@ body {
     font-size: 1rem;
     margin-bottom: 1.75rem;
     color: hsl(75, 94%, 57%);
+    
 }
 
 .top-container h3 {
