@@ -7,28 +7,53 @@ const insta = document.getElementById('insta')
 
 const links = [git,frontEnd,linkedIn,twitter,insta]
 
-for (const link of links) {
-    link.addEventListener('mouseover', (event) => {
-        
-        link.style.opacity = ''
 
-        for (const notLink of links) {
-            if (notLink !== event.currentTarget) {
-                notLink.style.opacity = '0.5'
-            }
-        }
-
-    link.addEventListener('mouseout', (event) => {
-
-        link.style.opacity = ''
-
-        for (const notLink of links) {
-            if (notLink !== event.currentTarget) {
-                notLink.style.opacity = ''
-            }
-        }
-    })
-    })
-    
+function addHoverListeners() {
+  for (const link of links) {
+    link.addEventListener('mouseover', mouseoverHandler)
+    link.addEventListener('mouseout', mouseoutHandler)       
+  }
 }
 
+function removeHoverListeners() {
+  for (const link of links) {
+    link.removeEventListener('mouseover', mouseoverHandler)
+    link.removeEventListener('mouseout', mouseoutHandler)       
+  }
+}
+
+
+function mouseoverHandler (event) {
+  event.currentTarget.style.opacity = ''
+
+  for (const notLink of links) {
+    if (notLink !== event.currentTarget) {
+      notLink.style.opacity = '0.5'
+    }
+  }
+}
+
+function mouseoutHandler (event) {
+  event.currentTarget.style.opacity = ''
+
+  for (const notLink of links) {
+    if (notLink !== event.currentTarget) {
+      notLink.style.opacity = ''
+    }
+  }
+}
+
+
+const mediaQuery = window.matchMedia('(min-width: 475px)');
+
+function checkMediaQuery() {
+  if (mediaQuery.matches) {
+    addHoverListeners();
+  } else {
+    removeHoverListeners();
+  }
+}
+
+checkMediaQuery();
+
+mediaQuery.addEventListener('change', checkMediaQuery);
