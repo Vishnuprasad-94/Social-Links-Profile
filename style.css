@@ -97,8 +97,17 @@ body {
 
 .bottom-container a:active {
    
-    scale: 0.985;
+    scale: 0.965;
 } 
+
+/*remove tap highlight*/
+
+.bottom-container a, 
+.bottom-container a:focus, 
+.bottom-container a:active {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
 
 /*Fonts and colors*/
 
